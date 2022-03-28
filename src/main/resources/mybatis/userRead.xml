@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuyth.mybatis.r2dbc.demo.mapper.UserInfoMapper">
+
+
+    <select id="selectUserInfoList" resultType="UserInfo">
+        SELECT
+            user_no,
+            account_id,
+            account_pw,
+            user_name,
+            address
+        FROM
+            db_test.tb_user_info
+        WHERE
+            account_id = #{id}
+    </select>
+
+    <select id="selectUserInfoById" parameterType="String" resultType="UserInfo">
+        SELECT
+            user_no,
+            account_id,
+            account_pw,
+            user_name,
+            address
+        FROM
+            db_test.tb_user_info
+        WHERE
+            account_id = #{value}
+    </select>
+
+    <insert id="insertUserInfo" parameterType="UserInfo">
+        INSERT INTO db_test.tb_user_info
+        (
+         account_id,
+         account_pw,
+         user_name,
+         address,
+         age
+        )
+        VALUES(
+            #{account_id},
+            #{account_pw},
+            #{user_name},
+            #{address},
+            #{age}
+        )
+    </insert>
+</mapper>
