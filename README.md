@@ -22,7 +22,7 @@
     1. JPA와 비슷한 구조로 개발되어 query를 작성 필요없이 쉽게 개발 가능
     2. @Id, @Table 등의 Annotation 지원
 - 단점
-    1. JPA와 유사하나 JPA 지원하는 다량의 Annotation 미지원
+    1. JPA와 유사하나 JPA 지원하는 다량의 Annotation 및 caching, lazy loading, write-behind 등 다양한 ORM Framework기능 미제공
     2. 복합키(Composite Key) 미지원 → 해결 불가, mybatis-r2dbc를 사용하게된 이유
     3. save 메소드의 ID객체가 세팅된 경우 무조건 update 하는 이슈 → `Persistable`<T> 상속으로 해결 가능
 
